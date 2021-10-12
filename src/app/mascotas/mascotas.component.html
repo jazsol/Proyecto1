@@ -1,0 +1,40 @@
+<p>Frm mascotas!</p>
+
+<form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
+    <input type = "text" class= "form-control" name = "nombrecompleto" placeholder = "nombre de mascota" ngModel>
+    
+    <input type = "text" class= "form-control" name = "raza" placeholder = "Raza " ngModel>
+    
+    <input type = "submit" class="btn btn-success" value = "Guardar">
+  </form>
+
+  <div class="row">
+    <div class="col">
+        <hr />
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Raza</th>                    
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="active-row"  *ngFor="let item of rows; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>
+                        {{ item.nombre }}
+                    </td>
+                    <td>
+                        {{ item.raza }}
+                    </td>
+                    
+                    <td> |
+                        <button type="button" (click)= "Borrarmascota(item.id)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
